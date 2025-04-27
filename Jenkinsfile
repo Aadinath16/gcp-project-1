@@ -27,7 +27,6 @@ pipeline {
 
         stage('Run Semantic Release') {   
             steps {
-                echo "Branch name: ${branch}"
                 sh 'npx semantic-release --debug'
             }
         }
