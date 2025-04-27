@@ -13,28 +13,11 @@ pipeline {
     }
 
     stages {
-    /*    stage('Checkout Code') {
-            steps {
-                checkout scm
-                sh '''
-                    git fetch --all
-                    git checkout ${GIT_BRANCH#origin/}
-                '''
-            }
-        } */
-
         stage('Checkout Code') {
             steps {
-                script {
-                    // Get the branch name without the prefix
-                    def branch = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
-                    echo "Branch name: ${branch}"
-
-                    // Checkout the branch explicitly
-                    sh "git checkout ${branch}"
-                }
+                checkout scm
             }
-        }
+        } 
 
         stage('Install Semantic Release') {
             steps {
