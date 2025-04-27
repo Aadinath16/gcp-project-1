@@ -27,7 +27,7 @@ pipeline {
 
         stage('Run Semantic Release') {   
             steps {
-                sh 'npx semantic-release --debug --token $GITHUB_TOKEN'
+                sh 'npx semantic-release --debug'
             }
         }
 
